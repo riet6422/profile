@@ -1,0 +1,94 @@
+/* ==========================================
+   1. フォントのインポート（1つにまとめました）
+   ========================================== */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;500;700&display=swap");
+
+
+body {
+  background-color: #b0b4b7;
+
+  /* 本文（pタグなど）に読みやすい「Open Sans」を設定 */
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+
+  /* 👥 コントラストを意識：背景が濃い青になったので、文字は白っぽくしないと見えなくなります！ */
+  color: #f8f9fa;
+}
+
+/* ==========================================
+   3. 見出し（Headers）の設定
+   ========================================== */
+h1, h2, h3 {
+  font-family: 'Poppins', sans-serif;
+  /* 👥 こちらも背景が濃い青なので、白や明るいグレーに変更して読みやすくします */
+  color: #ffffff;
+  margin-top: 0;
+}
+
+/* 少し控えめでエレガントなサイズ感に調整 */
+h1 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+h2 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #cbd5e1; /* サブタイトルを少しだけグレーにしてオシャレに */
+  margin-bottom: 16px;
+}
+
+/* ==========================================
+   4. リンク と ホバー効果（Links & Hover）
+   ========================================== */
+/* 下部のSNSアイコン（f, in, X）やリンクの設定 */
+a {
+  color: #e2e8f0; /* 通常時はなじむ明るいグレーに */
+  text-decoration: none;
+  font-size: 20px;
+  display: inline-block;
+  margin: 0 10px;
+}
+
+/* 🔥 マウスを乗せた時（ホバー）のエフェクト */
+a:hover {
+  color: #38bdf8; /* 濃い青の背景に映える、鮮やかなライトブルーに変化 */
+  transform: translateY(-2px); /* ほんの少し上に浮き上がらせる */
+}
+
+/* 「Contact Me」ボタン */
+.btn-contact, .button {
+  background-color: #0d6efd;
+  color: white;
+}
+
+/* ボタンにマウスを乗せた時 */
+.btn-contact:hover, .button:hover {
+  background-color: #0b5ed7;
+  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+}
+
+/* ==========================================
+   5. モーションへの配慮
+   ========================================== */
+@media (prefers-reduced-motion: no-preference) {
+  a, .btn-contact, .button {
+    transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
+}
+
+
+@media (max-width: 540px) {
+  .container {
+    width: 350px;
+  }
+}
+
+
+@media (max-width: 380px) {
+  .container {
+    width: 280px;
+  }
+}

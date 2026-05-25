@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rie Taylor - Profile</title>
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
+
+  <style>
+    /* --- ベースのスタイル --- */
+    body {
+      background-color: #9d9eae;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      padding: 40px 0; /* 上下に少し余白を持たせる */
+      margin: 0;
+    }
+
+    /* --- Step 1 & Further suggestions: コンテナとカード --- */
+    .container {
+      width: 500px;   /* 課題の指示通り、幅を500pxに固定 */
+      margin: 0 auto; /* 左右の余白を自動調整して中央寄せ */
+    }
+
+    .card-white {
+      background: white;
+      padding: 40px;
+      margin-bottom: 20px; /* カードとカードの間の余白 */
+      border-radius: 20px; /* あなたの元のデザインに合わせた角丸 */
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* あなたの元のデザインの綺麗な影 */
+    }
+
+    /* --- Step 2: 再利用可能な汎用セレクタ（Good CSSの例に準拠） --- */
+    .img-circle {
+      border-radius: 60%;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    /* --- 箇条書き（SNSリスト）のインライン化の指示 --- */
+    .list-inline {
+      list-style: none;
+      padding-left: 0px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+      border-top: 1px solid #eee;
+      padding-top: 20px;
+    }
+
+    .list-inline > li {
+      display: inline-block;
+      padding: 0px 20px;
+    }
+
+    /* --- その他のデザインパーツ --- */
+    h1 {
+      font-size: 28px;
+      color: #333;
+      margin: 10px 0 5px 0;
+    }
+
+    .job-title {
+      font-size: 16px;
+      color: #777;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+
+    .description {
+      font-size: 15px;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    .btn-details {
+      display: inline-block;
+      background-color: #4A90E2;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s, transform 0.2s;
+      box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+    }
+
+    .btn-details:hover {
+      background-color: #357ABD;
+      transform: translateY(-2px);
+    }
+
+    .list-inline a {
+      color: #555;
+      font-size: 24px;
+      transition: color 0.3s;
+    }
+
+    /* 各SNSのホバー色 */
+    .list-inline a.facebook:hover { color: #1877F2; }
+    .list-inline a.linkedin:hover { color: #0A66C2; }
+    .list-inline a.twitter:hover { color: #1DA1F2; }
+  </style>
+</head>
+<body>
+
+  <!-- 1. 全体をcontainerで囲み、横幅を制限して中央に配置 -->
+  <div class="container">
+
+    <!-- 2. 1つ目のカード：メインのプロフィール情報 -->
+    <div class="card-white text-center">
+      <img src="images/profile.png" alt="Rie Taylor" class="img-circle">
+
+      <header>
+        <h1>Rie Taylor</h1>
+        <p class="job-title">CS 💻</p>
+      </header>
+
+      <p class="description">
+        Practicing coding! 🚀
+      </p>
+
+      <a href="mailto:your-email@example.com" class="btn-details">Contact Me</a>
+
+      <!-- 課題の指定通り、.list-inlineクラスを使用 -->
+      <ul class="list-inline">
+        <li>
+          <a href="#" target="_blank" class="facebook" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#" target="_blank" class="linkedin" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#" target="_blank" class="twitter" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 3. 2つ目のカード：別の情報（今回は仮でスキルなどを入れる用の箱を分割） -->
+    <div class="card-white">
+      <h2 style="font-size: 20px; color: #333; margin-top: 0;">My Passion</h2>
+      <p class="description" style="margin-bottom: 0;">
+        I'm interested in coding!
+      </p>
+    </div>
+
+  </div>
+
+</body>
+</html>
