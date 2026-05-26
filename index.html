@@ -8,33 +8,35 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
 
   <style>
-    /* --- ベースのスタイル --- */
-    body {
-      background-color: #9d9eae;
+   body {
+      background: linear-gradient(rgba(109, 110, 117, 0.75), rgba(109, 110, 117, 0.75)),
+                  url('images/freya.png') no-repeat 10% center fixed,
+                  url('images/Subject.png') no-repeat 88% center fixed;
+
+      background-size: auto 60vh, auto 60vh;
+
       font-family: 'Helvetica Neue', Arial, sans-serif;
-      padding: 40px 0; /* 上下に少し余白を持たせる */
+      padding: 40px 0;
       margin: 0;
     }
 
-    /* --- Step 1 & Further suggestions: コンテナとカード --- */
     .container {
-      width: 500px;   /* 課題の指示通り、幅を500pxに固定 */
-      margin: 0 auto; /* 左右の余白を自動調整して中央寄せ */
+      width: 450px;
+      margin: 0 auto;
     }
 
     .card-white {
       background: white;
       padding: 40px;
-      margin-bottom: 20px; /* カードとカードの間の余白 */
-      border-radius: 20px; /* あなたの元のデザインに合わせた角丸 */
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* あなたの元のデザインの綺麗な影 */
+      margin-bottom: 15px;
+      border-radius: 15px;
+      box-shadow: 50 10px 30px rgba(0, 0, 0, 0.08);
     }
 
-    /* --- Step 2: 再利用可能な汎用セレクタ（Good CSSの例に準拠） --- */
     .img-circle {
-      border-radius: 60%;
-      width: 200px;
-      height: 200px;
+      border-radius: 80%;
+      width: 250px;
+      height: 250px;
       object-fit: cover;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
       margin-bottom: 20px;
@@ -44,7 +46,6 @@
       text-align: center;
     }
 
-    /* --- 箇条書き（SNSリスト）のインライン化の指示 --- */
     .list-inline {
       list-style: none;
       padding-left: 0px;
@@ -61,9 +62,8 @@
       padding: 0px 20px;
     }
 
-    /* --- その他のデザインパーツ --- */
     h1 {
-      font-size: 28px;
+      font-size: 38px;
       color: #333;
       margin: 10px 0 5px 0;
     }
@@ -78,7 +78,7 @@
     }
 
     .description {
-      font-size: 15px;
+      font-size: 18px;
       color: #666;
       line-height: 1.6;
       margin-bottom: 25px;
@@ -86,7 +86,7 @@
 
     .btn-details {
       display: inline-block;
-      background-color: #4A90E2;
+      background-color: #0b529d;
       color: white;
       padding: 12px 30px;
       border-radius: 25px;
@@ -97,7 +97,7 @@
     }
 
     .btn-details:hover {
-      background-color: #357ABD;
+      background-color: #0b5882;
       transform: translateY(-2px);
     }
 
@@ -107,7 +107,6 @@
       transition: color 0.3s;
     }
 
-    /* 各SNSのホバー色 */
     .list-inline a.facebook:hover { color: #1877F2; }
     .list-inline a.linkedin:hover { color: #0A66C2; }
     .list-inline a.twitter:hover { color: #1DA1F2; }
@@ -115,25 +114,20 @@
 </head>
 <body>
 
-  <!-- 1. 全体をcontainerで囲み、横幅を制限して中央に配置 -->
   <div class="container">
-
-    <!-- 2. 1つ目のカード：メインのプロフィール情報 -->
     <div class="card-white text-center">
       <img src="images/profile.png" alt="Rie Taylor" class="img-circle">
 
       <header>
         <h1>Rie Taylor</h1>
-        <p class="job-title">CS 💻</p>
-      </header>
+
 
       <p class="description">
-        Practicing coding! 🚀
+        💻Practicing coding! 🚀
       </p>
 
       <a href="mailto:your-email@example.com" class="btn-details">Contact Me</a>
 
-      <!-- 課題の指定通り、.list-inlineクラスを使用 -->
       <ul class="list-inline">
         <li>
           <a href="#" target="_blank" class="facebook" aria-label="Facebook">
@@ -153,15 +147,40 @@
       </ul>
     </div>
 
-    <!-- 3. 2つ目のカード：別の情報（今回は仮でスキルなどを入れる用の箱を分割） -->
     <div class="card-white">
-      <h2 style="font-size: 20px; color: #333; margin-top: 0;">My Passion</h2>
+      <h2 style="font-size: 25px; color: #333; margin-top: 0;">My Passion</h2>
       <p class="description" style="margin-bottom: 0;">
         I'm interested in coding!
       </p>
     </div>
 
-  </div>
 
+     <div class="card-white">
+      <h2 style="font-size: 25px; color: #333; margin-top: 0;">Favorite</h2>
+      <p class="description" style="margin-bottom: 0;">
+        Running, Traveling , hiking with my family     </p>
+    </div>
+
+    <div class="card-white">
+      <h2 style="font-size: 25px; color: #333; margin-top: 0;">Family</h2>
+      <p class="description" style="margin-bottom: 0;">
+        I have a wonderful family! 👨👦👶🐶
+      </p>
+    </div>
+
+    <div class="card-white">
+      <h2 style="font-size: 25px; color: #333; margin-top: 0;">Songs</h2>
+      <p class="description text-center" style="margin-bottom: 0;">
+        When I'm ..
+        <br>
+        <a href="https://youtu.be/ZbZSe6N_BXs?si=yE8TxdU5wzp19g9p" target="_blank" class="song-link">🎵 Happy</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://youtu.be/vbvyNnw8Qjg?si=JIXIpfeqc43koKe3" target="_blank" class="song-link">🌱 Chill</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://youtu.be/FcoUvu0mGog?si=tpQfmemXzLi_Y2xZ" target="_blank" class="song-link">🌧️ Sad</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://youtu.be/v2AC41dglnM?si=fFyPMy_IlURMWagV" target="_blank" class="song-link">🔥 Angry</a>
+      </p>
+    </div>
+
+
+  </div>
 </body>
 </html>
