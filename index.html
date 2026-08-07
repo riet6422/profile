@@ -8,21 +8,67 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
 
   <style>
-   body {
-      background: linear-gradient(rgba(109, 110, 117, 0.75), rgba(109, 110, 117, 0.75)),
-                  url('images/freya.png') no-repeat 10% center fixed,
-                  url('images/Subject.png') no-repeat 88% center fixed;
+    html {
+      min-height: 100%;
+    }
 
-      background-size: auto 60vh, auto 60vh;
-
+    body {
+      background: linear-gradient(160deg, #dce8f5 0%, #b7c6d6 50%, #949fa8 100%);
+      background-repeat: no-repeat;
       font-family: 'Helvetica Neue', Arial, sans-serif;
       padding: 40px 0;
       margin: 0;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-repeat: repeat;
+      background-image:
+        radial-gradient(2.5px 2.5px at 20px 30px, #ffffff 0%, rgba(255,255,255,0) 70%),
+        radial-gradient(2.5px 2.5px at 90px 110px, #ffffff 0%, rgba(255,255,255,0) 70%),
+        radial-gradient(2px 2px at 150px 60px, #ffffff 0%, rgba(255,255,255,0) 70%),
+        radial-gradient(3px 3px at 60px 150px, #ffffff 0%, rgba(255,255,255,0) 70%),
+        radial-gradient(2px 2px at 180px 20px, #ffffff 0%, rgba(255,255,255,0) 70%),
+        radial-gradient(2.5px 2.5px at 120px 180px, #ffffff 0%, rgba(255,255,255,0) 70%),
+        radial-gradient(2px 2px at 10px 190px, #ffffff 0%, rgba(255,255,255,0) 70%),
+        radial-gradient(3px 3px at 200px 100px, #ffffff 0%, rgba(255,255,255,0) 70%);
+      background-size: 220px 220px;
+      filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.9));
+      animation: sparkle 3.5s ease-in-out infinite alternate;
+    }
+
+    body::after {
+      background-position: 40px 60px;
+      background-size: 280px 280px;
+      animation-duration: 5.5s;
+      animation-delay: -2s;
+    }
+
+    @keyframes sparkle {
+      from { opacity: 0.35; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1.05); }
     }
 
     .container {
       width: 450px;
+      max-width: 90%;
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        width: 700px;
+      }
     }
 
     .card-white {
@@ -30,15 +76,15 @@
       padding: 40px;
       margin-bottom: 15px;
       border-radius: 15px;
-      box-shadow: 50 10px 30px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     }
 
     .img-circle {
-      border-radius: 80%;
-      width: 250px;
-      height: 250px;
+      border-radius: 50%;
+      width: 260px;
+      height: 260px;
       object-fit: cover;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
       margin-bottom: 20px;
     }
 
@@ -63,25 +109,32 @@
     }
 
     h1 {
-      font-size: 38px;
-      color: #333;
+      font-size: 34px;
+      color: #1c2b3a;
       margin: 10px 0 5px 0;
     }
 
     .job-title {
-      font-size: 16px;
-      color: #777;
-      font-weight: 500;
+      font-size: 14px;
+      color: #0b529d;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 15px;
+      letter-spacing: 1.5px;
+      margin: 0 0 20px 0;
     }
 
     .description {
-      font-size: 18px;
-      color: #666;
+      font-size: 17px;
+      color: #555;
       line-height: 1.6;
       margin-bottom: 25px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      color: #1c2b3a;
+      margin-top: 0;
+      margin-bottom: 12px;
     }
 
     .btn-details {
@@ -93,7 +146,7 @@
       text-decoration: none;
       font-weight: bold;
       transition: background 0.3s, transform 0.2s;
-      box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+      box-shadow: 0 4px 12px rgba(11, 82, 157, 0.3);
     }
 
     .btn-details:hover {
@@ -107,76 +160,73 @@
       transition: color 0.3s;
     }
 
-    .list-inline a.facebook:hover { color: #1877F2; }
-    .list-inline a.linkedin:hover { color: #0A66C2; }
-    .list-inline a.twitter:hover { color: #1DA1F2; }
+    .list-inline a.github:hover { color: #333; }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <div class="card-white text-center">
+    <div class="card-white text-center" style="padding-bottom: 15px;">
       <img src="images/profile.png" alt="Rie Taylor" class="img-circle">
 
       <header>
         <h1>Rie Taylor</h1>
-
+        <p class="job-title">Software Developer</p>
+      </header>
 
       <p class="description">
-        💻 Practicing coding! 🚀
+        Challenging myself to learn and grow through coding, one commit at a time.
       </p>
 
-      <a href="mailto:your-email@example.com" class="btn-details">Contact Me</a>
+      <a href="mailto:ntaylor6422@gmail.com" class="btn-details">Contact Me</a>
 
       <ul class="list-inline">
         <li>
-          <a href="#" target="_blank" class="facebook" aria-label="Facebook">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-        </li>
-        <li>
-          <a href="#" target="_blank" class="linkedin" aria-label="LinkedIn">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-        </li>
-        <li>
-          <a href="#" target="_blank" class="twitter" aria-label="Twitter">
-            <i class="fab fa-twitter"></i>
+          <a href="https://github.com/riet6422" target="_blank" class="github" aria-label="GitHub">
+            <i class="fab fa-github"></i>
           </a>
         </li>
       </ul>
     </div>
 
     <div class="card-white">
-      <h2 style="font-size: 25px; color: #333; margin-top: 0;">My Passion</h2>
+      <h2 class="section-title">My Passion</h2>
       <p class="description" style="margin-bottom: 0;">
-        I'm interested in coding!
-      </p>
-    </div>
-
-
-     <div class="card-white">
-      <h2 style="font-size: 25px; color: #333; margin-top: 0;">Favorite</h2>
-      <p class="description" style="margin-bottom: 0;">
-        Running, Traveling , hiking with my family     </p>
-    </div>
-
-    <div class="card-white">
-      <h2 style="font-size: 25px; color: #333; margin-top: 0;">Family</h2>
-      <p class="description" style="margin-bottom: 0;">
-        I have a wonderful family! 👨👦👶🐶
+        I'm passionate about coding and the process of turning an idea into something real.
+        I enjoy learning new languages and tools, working through problems step by step, and
+        seeing how small, steady improvements add up over time. Every project is a chance to
+        pick up something new, and I love the feeling of finally getting a piece of code to
+        work exactly the way I intended.
       </p>
     </div>
 
     <div class="card-white">
-      <h2 style="font-size: 25px; color: #333; margin-top: 0;">Songs</h2>
-      <p class="description text-center" style="margin-bottom: 0;">
-        When I'm ..
-        <br>
-        <a href="https://youtu.be/ZbZSe6N_BXs?si=yE8TxdU5wzp19g9p" target="_blank" class="song-link">🎵 Happy</a>&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="https://youtu.be/347vCib_lMs?si=y7ImYi9bhTEWeUC2" target="_blank" class="song-link">🌱 Chill</a>&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="https://youtu.be/FcoUvu0mGog?si=tpQfmemXzLi_Y2xZ" target="_blank" class="song-link">🌧️ Sad</a>&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="https://youtu.be/v2AC41dglnM?si=fFyPMy_IlURMWagV" target="_blank" class="song-link">🔥 Angry</a>
+      <h2 class="section-title">Favorite</h2>
+      <p class="description" style="margin-bottom: 0;">
+        Running, traveling, and hiking with my family.
+      </p>
+    </div>
+
+    <div class="card-white">
+      <h2 class="section-title">Experience</h2>
+
+      <p class="description">
+        <strong>Project Work.</strong> As a Software Engineer, I've had the chance to work on a
+        variety of projects, from small internal tools to full-scale applications built from the
+        ground up. I've worked across the stack, designing user-friendly interfaces on the front
+        end and building reliable, well structured services on the back end.
+      </p>
+
+      <p class="description">
+        <strong>Collaboration.</strong> I enjoy collaborating with cross-functional teams, turning
+        requirements into working software, and iterating quickly based on feedback.
+      </p>
+
+      <p class="description" style="margin-bottom: 0;">
+        <strong>Continuous Growth.</strong> Along the way, I've picked up experience with a range
+        of languages, frameworks, and workflows, and I'm always looking for the next challenge that
+        helps me grow as a developer and ship software that makes a real difference for the people
+        who use it.
       </p>
     </div>
   </div>

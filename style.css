@@ -1,9 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;500;700&display=swap");
+html {
+  min-height: 100%;
+}
+
 body {
   /* ▼▼▼ ここから書き換え ▼▼▼ */
-  background: linear-gradient(rgba(5, 93, 181, 0.85), rgba(5, 93, 181, 0.85)),
-              url('images/Subject.png') no-repeat center center fixed;
-  background-size: cover;
+  background: linear-gradient(160deg, #dce8f5 0%, #b7c6d6 50%, #949fa8 100%);
+  background-repeat: no-repeat;
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 1.6;
