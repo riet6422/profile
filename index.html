@@ -13,7 +13,7 @@
     }
 
     body {
-      background: linear-gradient(160deg, #dce8f5 0%, #b7c6d6 50%, #949fa8 100%);
+      background: linear-gradient(160deg, #a9c1de 0%, #6f8caf 50%, #3d5674 100%);
       background-repeat: no-repeat;
       font-family: 'Helvetica Neue', Arial, sans-serif;
       padding: 40px 0;
@@ -135,6 +135,12 @@
       color: #1c2b3a;
       margin-top: 0;
       margin-bottom: 12px;
+      display: inline-block;
+      transition: transform 0.2s ease;
+    }
+
+    .section-title:hover {
+      transform: translateY(-4px);
     }
 
     .btn-details {
@@ -161,9 +167,131 @@
     }
 
     .list-inline a.github:hover { color: #333; }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .timeline-item {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 16px 0;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .timeline-item.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .timeline-item + .timeline-item {
+      border-top: 1px solid #eee;
+    }
+
+    .timeline-photo {
+      flex: none;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+    }
+
+    .timeline-photo img,
+    .timeline-photo svg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .timeline-label {
+      display: block;
+      font-size: 12px;
+      color: #0b529d;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-bottom: 4px;
+    }
+
+    .timeline-city {
+      font-size: 18px;
+      color: #1c2b3a;
+      margin: 0;
+    }
   </style>
 </head>
 <body>
+
+  <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="usaSky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#8ec9f0"/>
+        <stop offset="100%" stop-color="#f3d9c4"/>
+      </linearGradient>
+      <linearGradient id="canadaSky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#fdf1ee"/>
+        <stop offset="100%" stop-color="#f6c3bd"/>
+      </linearGradient>
+      <linearGradient id="thailandSky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#ffe1a8"/>
+        <stop offset="100%" stop-color="#f4a94c"/>
+      </linearGradient>
+      <linearGradient id="japanSky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#fbdfe6"/>
+        <stop offset="100%" stop-color="#f2c6d0"/>
+      </linearGradient>
+
+      <symbol id="place-usa" viewBox="0 0 100 100">
+        <rect width="100" height="100" fill="url(#usaSky)"/>
+        <g fill="#2c4258">
+          <rect x="44" y="70" width="12" height="18" rx="1"/>
+          <path d="M40 70 L46 40 Q50 34 54 40 L60 70 Z"/>
+          <path d="M42 40 L58 40 L54 30 L46 30 Z"/>
+          <polygon points="50,17 53,30 47,30"/>
+          <polygon points="42,30 46,21 49,30"/>
+          <polygon points="51,30 54,21 58,30"/>
+          <line x1="58" y1="42" x2="71" y2="25" stroke="#2c4258" stroke-width="3" stroke-linecap="round"/>
+        </g>
+        <circle cx="72" cy="22" r="4" fill="#ffd200"/>
+      </symbol>
+
+      <symbol id="place-canada" viewBox="0 0 100 100">
+        <rect width="100" height="100" fill="url(#canadaSky)"/>
+        <path fill="#d52b1e" d="M50 22 L55 36 L68 31 L62 43 L76 47 L61 51 L65 65 L52 57 L50 72 L48 57 L35 65 L39 51 L24 47 L38 43 L32 31 L45 36 Z"/>
+      </symbol>
+
+      <symbol id="place-thailand" viewBox="0 0 100 100">
+        <rect width="100" height="100" fill="url(#thailandSky)"/>
+        <g fill="#b8892f">
+          <rect x="28" y="80" width="44" height="7"/>
+          <polygon points="33,80 67,80 61,64 39,64"/>
+          <polygon points="39,64 61,64 56,50 44,50"/>
+          <polygon points="44,50 56,50 51,37 49,37"/>
+          <rect x="48.5" y="19" width="3" height="18"/>
+          <circle cx="50" cy="17" r="3"/>
+        </g>
+      </symbol>
+
+      <symbol id="place-japan" viewBox="0 0 100 100">
+        <rect width="100" height="100" fill="url(#japanSky)"/>
+        <circle cx="68" cy="28" r="12" fill="#e0273a" opacity="0.85"/>
+        <path d="M18 80 L50 30 L82 80 Z" fill="#4a6178"/>
+        <path d="M37 80 L50 47 L63 80 Z" fill="#ffffff"/>
+        <g stroke="#b8283a" stroke-width="3" fill="none">
+          <line x1="30" y1="70" x2="30" y2="90"/>
+          <line x1="70" y1="70" x2="70" y2="90"/>
+          <line x1="24" y1="72" x2="76" y2="72"/>
+          <line x1="26" y1="78" x2="74" y2="78"/>
+        </g>
+      </symbol>
+    </defs>
+  </svg>
 
   <div class="container">
     <div class="card-white text-center" style="padding-bottom: 15px;">
@@ -229,6 +357,73 @@
         who use it.
       </p>
     </div>
+
+    <div class="card-white">
+      <h2 class="section-title">Places I've Lived 📍</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-photo"><svg viewBox="0 0 100 100"><use href="#place-usa"></use></svg></div>
+          <div>
+            <span class="timeline-label">School</span>
+            <h3 class="timeline-city">USA</h3>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-photo"><svg viewBox="0 0 100 100"><use href="#place-canada"></use></svg></div>
+          <div>
+            <span class="timeline-label">School</span>
+            <h3 class="timeline-city">Canada</h3>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-photo"><svg viewBox="0 0 100 100"><use href="#place-usa"></use></svg></div>
+          <div>
+            <span class="timeline-label">Worked In</span>
+            <h3 class="timeline-city">USA</h3>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-photo"><svg viewBox="0 0 100 100"><use href="#place-canada"></use></svg></div>
+          <div>
+            <span class="timeline-label">Worked In</span>
+            <h3 class="timeline-city">Canada</h3>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-photo"><svg viewBox="0 0 100 100"><use href="#place-thailand"></use></svg></div>
+          <div>
+            <span class="timeline-label">Worked In</span>
+            <h3 class="timeline-city">Thailand</h3>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-photo"><svg viewBox="0 0 100 100"><use href="#place-japan"></use></svg></div>
+          <div>
+            <span class="timeline-label">Worked In &middot; Now</span>
+            <h3 class="timeline-city">Japan</h3>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <script>
+    document.querySelectorAll('.timeline-item').forEach((item, i) => {
+      item.style.transitionDelay = (i * 0.15) + 's';
+    });
+
+    const timelineObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          timelineObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.timeline-item').forEach((item) => {
+      timelineObserver.observe(item);
+    });
+  </script>
 </body>
 </html>
